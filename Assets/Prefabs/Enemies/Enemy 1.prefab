@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 4372787007851819946}
   - component: {fileID: 4372787007851819947}
   - component: {fileID: 4372787007851819944}
+  - component: {fileID: -8156591891433782983}
   - component: {fileID: 1253058597342215209}
   - component: {fileID: 5665401732807461486}
   - component: {fileID: 5960218561763651905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -108,6 +109,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8156591891433782983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372787007851819945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ffb4f75d88f1f448bfdd4d40db14d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4372787007851819944}
+  currentHealth: 50
+  maxHealth: 50
+  isDead: 0
 --- !u!50 &1253058597342215209
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +156,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.35873577, y: 0}

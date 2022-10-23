@@ -21,4 +21,15 @@ public class Projectiles : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<EnemiesHealth>() != null)
+        {
+            //store the info of colliding in _enemyHealth
+            EnemiesHealth _enemiesHealth = collision.gameObject.GetComponent<EnemiesHealth>();
+            _enemiesHealth.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+    }
 }

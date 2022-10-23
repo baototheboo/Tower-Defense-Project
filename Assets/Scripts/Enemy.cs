@@ -10,28 +10,35 @@ public class Enemy : MonoBehaviour
     public float navTimeUpdate;
     public float currentNavTime;
     public Transform enemy;
+    private EnemiesHealth enemieHealth;
+
     // Start is called before the first frame update
     void Start()
     {
+        enemieHealth = GetComponent<EnemiesHealth>();
         enemy = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (wayPoints != null)
+        if (enemieHealth.isDead != true)
         {
-            currentNavTime += Time.deltaTime;
-            if (currentNavTime > navTimeUpdate)
+            if (wayPoints != null)
             {
-                if (target < wayPoints.Length)
+                currentNavTime += Time.deltaTime;
+                if (currentNavTime > navTimeUpdate)
                 {
-                    enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position,currentNavTime);
-                } else
-                {
-                    enemy.position = Vector2.MoveTowards(enemy.position, exitPoint.position, currentNavTime);
+                    if (target < wayPoints.Length)
+                    {
+                        enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, currentNavTime);
+                    }
+                    else
+                    {
+                        enemy.position = Vector2.MoveTowards(enemy.position, exitPoint.position, currentNavTime);
+                    }
+                    currentNavTime = 0;
                 }
-                currentNavTime = 0;
             }
         }
     }
