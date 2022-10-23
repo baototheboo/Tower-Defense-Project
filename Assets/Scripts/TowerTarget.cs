@@ -21,11 +21,14 @@ public class TowerTarget : MonoBehaviour
         if (closestEnemy != null)
         {
             LockAtEnemy();
-            tower.Shoot();
+            if (shouldShoot == true)
+            {
+                tower.Shoot();
+            }
 
         }
 
-        closestEnemy = GetClosestEnemy();
+        //closestEnemy = GetClosestEnemy();
     }
 
     public void LockAtEnemy()
@@ -59,5 +62,23 @@ public class TowerTarget : MonoBehaviour
 
         return enemyPos;
 
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            shouldShoot = true;
+            closestEnemy = GetClosestEnemy();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+
+            shouldShoot = false;
+        }
     }
 }
