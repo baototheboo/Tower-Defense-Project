@@ -91,17 +91,28 @@ public class TowerManager : MonoBehaviour
             //register that tower in our tower list
             RegisterTower(newTower);
             //call the buy tower function
-            //BuyTower(towerBtnPressed.TowerPrice);
+            BuyTower(towerBtnPressed.TowerPrice);
             //disable the sprite of tower
             DisableDragSprite();
         }
     }
 
+    public void BuyTower(int price)
+    {
+        //reduce from our current gold after buying tower
+        GameManager.instance.ReduceGold(price);
+    }
+
     public void SelectedTower(TowerButton towerBtn)
     {
-        //when we clicked on tower UI button active the sprite of that tower
-        towerBtnPressed = towerBtn;
-        EnableDragSprite(towerBtn.DragSprite);
+        //check that tower price is less than our current gold
+        if (towerBtn.TowerPrice <= GameManager.instance.currentGold)
+        {
+            //when we clicked on tower UI button active the sprite of that tower
+            towerBtnPressed = towerBtn;
+            EnableDragSprite(towerBtn.DragSprite);
+
+        }
     }
 
     private void FollowMouse()

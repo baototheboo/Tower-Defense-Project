@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int enemiesOnScreen;
     public int totalEnemies;
     public int enemiesPerSpawn;
+    public int currentGold;
+    public Text goldText;
     private void Awake()
     {
         instance = this;
@@ -25,7 +28,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        goldText.text = currentGold.ToString();
+    }
+
+    public void AddGold(int amount)
+    {
+        currentGold += amount;
+    }
+
+    public void ReduceGold(int amount)
+    {
+        currentGold -= amount;
+
     }
 
     IEnumerator Spawn()

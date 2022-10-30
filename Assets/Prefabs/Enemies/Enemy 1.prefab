@@ -125,6 +125,7 @@ MonoBehaviour:
   currentHealth: 50
   maxHealth: 50
   isDead: 0
+  goldToGive: 10
 --- !u!50 &1253058597342215209
 Rigidbody2D:
   serializedVersion: 4
