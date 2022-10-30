@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float speed;
     public int target = 0;
     public Transform exitPoint;
     public Transform[] wayPoints;
@@ -27,15 +28,15 @@ public class Enemy : MonoBehaviour
             if (wayPoints != null)
             {
                 currentNavTime += Time.deltaTime;
-                if (currentNavTime > navTimeUpdate)
+                if (currentNavTime > navTimeUpdate && speed > 0)
                 {
                     if (target < wayPoints.Length)
                     {
-                        enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, currentNavTime);
+                        enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, speed*currentNavTime);
                     }
                     else
                     {
-                        enemy.position = Vector2.MoveTowards(enemy.position, exitPoint.position, currentNavTime);
+                        enemy.position = Vector2.MoveTowards(enemy.position, exitPoint.position, speed * currentNavTime);
                     }
                     currentNavTime = 0;
                 }
