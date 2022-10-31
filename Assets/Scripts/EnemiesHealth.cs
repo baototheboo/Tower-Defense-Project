@@ -8,6 +8,7 @@ public class EnemiesHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public bool isDead;
+    public int goldToGive;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,10 @@ public class EnemiesHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            GetComponent<Collider2D>().enabled = false;
             isDead = true;
             currentHealth = 0;
+            GameManager.instance.AddGold(goldToGive);
             anim.SetBool("isDead", true);
             Destroy(gameObject, 2f);
         }
