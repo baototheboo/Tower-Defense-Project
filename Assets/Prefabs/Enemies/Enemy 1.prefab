@@ -126,6 +126,7 @@ MonoBehaviour:
   maxHealth: 50
   isDead: 0
   goldToGive: 10
+  splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
 --- !u!50 &1253058597342215209
 Rigidbody2D:
   serializedVersion: 4

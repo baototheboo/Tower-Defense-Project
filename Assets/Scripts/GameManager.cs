@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,21 +15,30 @@ public class GameManager : MonoBehaviour
     public int totalEnemies;
     public int enemiesPerSpawn;
     public int maxWave;
+    public int maxHealth = 4;
+    public Text CurrentWaveText;
+    public Text CurrenHealthText;
     public int currentWave = 0;
     int numberEnemy3 = 0;
     int numberEnemy2 = 0;
+    public int currentHealth;
+    public GameObject winWindow;
+    public GameObject loseWindow;
     
     public int currentGold;
     public Text goldText;
     private void Awake()
     {
         instance = this;
+        currentHealth = maxHealth;
     }
     
     // Update is called once per frame
     void Update()
     {
         goldText.text = currentGold.ToString();
+        CurrentWaveText.text = currentWave.ToString() + "/" + maxWave.ToString();
+        CurrenHealthText.text = currentHealth.ToString()+"/"+maxHealth.ToString();
         if(currentWave < maxWave && enemiesOnScreen == 0)
         {
             currentWave++;
@@ -38,8 +48,9 @@ public class GameManager : MonoBehaviour
             numberEnemy2 = 0;
             StartCoroutine(Spawn());
         }
-        else if(currentWave > maxWave)
+        else if(currentWave == maxWave && enemiesOnScreen == 0)
         {
+            winWindow.SetActive(true);
             StopAllCoroutines();
         }
     }
@@ -74,7 +85,25 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Spawn());
         }
     }
+    public void PlayerGetDamage()
+    {
+        currentHealth--;
+        if(currentHealth <= 0)
+        {
+            loseWindow.SetActive(true);
+            currentHealth = 0;
+        }
+    }
 
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     int whichEnemy()
     {
         if (currentWave > 10)
