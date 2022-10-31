@@ -41,14 +41,16 @@ public class Enemy : MonoBehaviour
                     currentNavTime = 0;
                 }
             }
-        }
+        //}
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="WP")
+        if (other.tag == "WP")
         {
-            target++;
+            target += 1;
+
         }
     }
 }
