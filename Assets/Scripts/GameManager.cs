@@ -6,29 +6,42 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    const float waitingTime = 1;
+    public float waitingTime = 1;
     public GameObject spawnPoint;
     public GameObject[] enemies;
     public int maxEnemiesOnScreen;
     public int enemiesOnScreen;
     public int totalEnemies;
     public int enemiesPerSpawn;
+    public int maxWave;
+    public int currentWave = 0;
+    int numberEnemy3 = 0;
+    int numberEnemy2 = 0;
+    
     public int currentGold;
     public Text goldText;
     private void Awake()
     {
         instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(Spawn());
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
         goldText.text = currentGold.ToString();
+        if(currentWave < maxWave && enemiesOnScreen == 0)
+        {
+            currentWave++;
+            totalEnemies++;
+            maxEnemiesOnScreen++;
+            numberEnemy3 = 0;
+            numberEnemy2 = 0;
+            StartCoroutine(Spawn());
+        }
+        else if(currentWave > maxWave)
+        {
+            StopAllCoroutines();
+        }
     }
 
     public void AddGold(int amount)
@@ -50,7 +63,8 @@ public class GameManager : MonoBehaviour
             {
                 if(enemiesOnScreen < maxEnemiesOnScreen)
                 {
-                    GameObject newEnemy = Instantiate(enemies[0] as GameObject);
+                    
+                    GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);
                     newEnemy.transform.position = spawnPoint.transform.position;
                     enemiesOnScreen++;
                 }
@@ -59,5 +73,28 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(waitingTime);
             StartCoroutine(Spawn());
         }
+    }
+
+    int whichEnemy()
+    {
+        if (currentWave > 10)
+        {
+            if (numberEnemy2 < currentWave / 10)
+            {
+                numberEnemy2++;
+                return 1;
+            }
+            return 0;
+        }
+        else if (currentWave > 3 && currentWave <= 10)
+        {
+            if(numberEnemy3 < currentWave / 3)
+            {
+                numberEnemy3++;
+                return 2;
+            }
+            return 0;
+        }
+        return 0;
     }
 }
