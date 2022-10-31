@@ -8,6 +8,7 @@ public class EnemiesHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public bool isDead;
+    public GameObject splash;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,12 @@ public class EnemiesHealth : MonoBehaviour
             anim.SetBool("isDead", true);
             Destroy(gameObject, 2f);
         }
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
+        GameManager.instance.enemiesOnScreen--;
+        GameObject obj = Instantiate(splash, transform.position, transform.rotation);
+        Destroy(obj, 0.7f);
     }
 }

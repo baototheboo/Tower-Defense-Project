@@ -125,6 +125,7 @@ MonoBehaviour:
   currentHealth: 300
   maxHealth: 300
   isDead: 0
+  splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
 --- !u!50 &6352969732867159507
 Rigidbody2D:
   serializedVersion: 4
