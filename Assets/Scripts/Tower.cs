@@ -9,9 +9,30 @@ public class Tower : MonoBehaviour
     public float shotPerSeconds;
     private float nextShotTime;
 
+    public int level;
+    public int maxLevel;
+    public int upgradeCost;
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void Update()
     {
         
+    }
+
+    public void AddLevel()
+    {
+        if (upgradeCost <= GameManager.instance.currentGold && level < maxLevel)
+        {
+            level++;
+            GameManager.instance.ReduceGold(upgradeCost);
+            anim.SetTrigger("Upgrade");
+            shotPerSeconds++;
+            AudioManager.instance.PlaySFX(11);
+        }
     }
 
     public void Shoot()
@@ -26,4 +47,6 @@ public class Tower : MonoBehaviour
             nextShotTime = Time.time + (1 / shotPerSeconds);
         }
     }
+
+
 }

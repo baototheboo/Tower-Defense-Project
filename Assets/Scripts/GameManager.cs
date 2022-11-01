@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int maxEnemiesOnScreen;
     public int enemiesOnScreen;
     public int totalEnemies;
+    public int totalCurrentEnemies;
     public int enemiesPerSpawn;
     public int maxWave;
     public int maxHealth = 4;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour
     public GameObject winWindow;
     public GameObject loseWindow;
     
+    public int currentGold;
+    public Text goldText;
     private void Awake()
     {
         instance = this;
@@ -34,7 +37,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentWaveText.text = currentWave.ToString() + "/" + maxWave.ToString();
+        goldText.text = currentGold.ToString();
+        CurrentWaveText.text = "Wave " + currentWave.ToString();
         CurrenHealthText.text = currentHealth.ToString()+"/"+maxHealth.ToString();
         if(currentWave < maxWave && enemiesOnScreen == 0)
         {
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
             maxEnemiesOnScreen++;
             numberEnemy3 = 0;
             numberEnemy2 = 0;
+            totalCurrentEnemies = 0;
             StartCoroutine(Spawn());
         }
         else if(currentWave == maxWave && enemiesOnScreen == 0)
@@ -52,18 +57,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddGold(int amount)
+    {
+        currentGold += amount;
+    }
+
+    public void ReduceGold(int amount)
+    {
+        currentGold -= amount;
+
+    }
+
     IEnumerator Spawn()
     {
-        if(enemiesPerSpawn > 0 && enemiesOnScreen < totalEnemies)
+        if(enemiesPerSpawn > 0 && totalCurrentEnemies < totalEnemies)
         {
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
-                if(enemiesOnScreen < maxEnemiesOnScreen)
+                if(totalCurrentEnemies < maxEnemiesOnScreen)
                 {
                     
                     GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);
                     newEnemy.transform.position = spawnPoint.transform.position;
                     enemiesOnScreen++;
+                    totalCurrentEnemies++;
                 }
             }
 

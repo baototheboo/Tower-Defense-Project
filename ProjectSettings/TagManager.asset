@@ -8,6 +8,7 @@ TagManager:
   - BuildPlace
   - BuildPlaceFull
   - Enemy
+  - Setting
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - Ground
   - Enemy
-  - 
-  - 
-  - 
+  - Enemy 1
+  - Enemy 2
+  - Enemy 3
   - 
   - 
   - 

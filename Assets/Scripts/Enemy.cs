@@ -32,7 +32,18 @@ public class Enemy : MonoBehaviour
                 {
                     if (target < wayPoints.Length)
                     {
-                        enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, speed*currentNavTime);
+
+                        if (enemy.position.x > wayPoints[target].position.x)
+                        {
+                            enemy.rotation = Quaternion.Euler(0, 180, 0);
+                            enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, speed * currentNavTime);
+                        }
+                        else
+                        {
+                            enemy.rotation = Quaternion.Euler(0, 0, 0);
+                            enemy.position = Vector2.MoveTowards(enemy.position, wayPoints[target].position, speed * currentNavTime);
+                        }
+
                     }
                     else
                     {
@@ -42,13 +53,15 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="WP")
+        if (other.tag == "WP")
         {
-            target++;
+            target += 1;
+
         }
     }
 }

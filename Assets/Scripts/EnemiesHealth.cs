@@ -8,6 +8,7 @@ public class EnemiesHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public bool isDead;
+    public int goldToGive;
     public GameObject splash;
 
     // Start is called before the first frame update
@@ -30,10 +31,18 @@ public class EnemiesHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            GetComponent<Collider2D>().enabled = false;
             isDead = true;
             currentHealth = 0;
+            GameManager.instance.enemiesOnScreen -= 1;
+            GameManager.instance.AddGold(goldToGive);
             anim.SetBool("isDead", true);
             Destroy(gameObject, 2f);
+            if( gameObject.layer == 8)
+            {
+                AudioManager.instance.PlaySFX(14);
+            }
+            
         }
     }
     public void Destroy()
@@ -41,6 +50,6 @@ public class EnemiesHealth : MonoBehaviour
         Destroy(gameObject);
         GameManager.instance.enemiesOnScreen--;
         GameObject obj = Instantiate(splash, transform.position, transform.rotation);
-        Destroy(obj, 0.7f);
+        Destroy(obj, 0.7f);   
     }
 }
