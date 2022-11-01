@@ -31,6 +31,7 @@ public class Tower : MonoBehaviour
             GameManager.instance.ReduceGold(upgradeCost);
             anim.SetTrigger("Upgrade");
             shotPerSeconds++;
+            AudioManager.instance.PlaySFX(11);
         }
     }
 

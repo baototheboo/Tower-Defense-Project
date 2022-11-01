@@ -107,6 +107,7 @@ public class TowerManager : MonoBehaviour
     {
         //reduce from our current gold after buying tower
         GameManager.instance.ReduceGold(price);
+        AudioManager.instance.PlaySFX(8);
     }
 
     public void SelectedTower(TowerButton towerBtn)
