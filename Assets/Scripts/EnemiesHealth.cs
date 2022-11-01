@@ -34,6 +34,7 @@ public class EnemiesHealth : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             isDead = true;
             currentHealth = 0;
+            GameManager.instance.enemiesOnScreen -= 1;
             GameManager.instance.AddGold(goldToGive);
             anim.SetBool("isDead", true);
             Destroy(gameObject, 2f);

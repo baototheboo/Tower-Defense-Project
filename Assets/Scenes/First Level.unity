@@ -934,7 +934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -348}
+  m_AnchoredPosition: {x: 596, y: -388}
   m_SizeDelta: {x: 586.3417, y: 161.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &296133973
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerObject: {fileID: 6335421765614218875, guid: 5b3cdbff31328974b8dda5452a77af85, type: 3}
   dragSprite: {fileID: 21300000, guid: 0a4f1f3e74cce5f419cdccd1f352d739, type: 3}
-  towerPrice: 30
+  towerPrice: 25
 --- !u!1 &413919991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,19 +1886,20 @@ MonoBehaviour:
   - {fileID: 4372787007851819945, guid: 767e7789aa13bfa4a87dd811505868f5, type: 3}
   - {fileID: 6759754228856327120, guid: 3a4b50b7086b22c4a8af73351dc74b03, type: 3}
   - {fileID: 1003492812697862132, guid: 8a6bc1c88ad3e6946a35d621c4939f3d, type: 3}
-  maxEnemiesOnScreen: 8
+  maxEnemiesOnScreen: 0
   enemiesOnScreen: 0
-  totalEnemies: 9
+  totalEnemies: 0
+  totalCurrentEnemies: 0
   enemiesPerSpawn: 1
   maxWave: 1000
-  maxHealth: 4
+  maxHealth: 1
   CurrentWaveText: {fileID: 2130172749}
   CurrenHealthText: {fileID: 794072514}
-  currentWave: 1
+  currentWave: 0
   currentHealth: 0
   winWindow: {fileID: 1235581581}
   loseWindow: {fileID: 1021506644}
-  currentGold: 1000
+  currentGold: 500
   goldText: {fileID: 988931227}
 --- !u!4 &545134970
 Transform:
@@ -3072,7 +3073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -289, y: 141.8}
+  m_AnchoredPosition: {x: -822, y: 491}
   m_SizeDelta: {x: 238.8561, y: 68.3975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1292415184
@@ -3830,7 +3831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 141.8}
+  m_AnchoredPosition: {x: -555, y: 491}
   m_SizeDelta: {x: 261.5239, y: 68.3975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1602686756 stripped
@@ -4162,7 +4163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -5257,12 +5257,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 46
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

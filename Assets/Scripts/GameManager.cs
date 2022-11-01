@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int maxEnemiesOnScreen;
     public int enemiesOnScreen;
     public int totalEnemies;
+    public int totalCurrentEnemies;
     public int enemiesPerSpawn;
     public int maxWave;
     public int maxHealth = 4;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         goldText.text = currentGold.ToString();
-        CurrentWaveText.text = currentWave.ToString() + "/" + maxWave.ToString();
+        CurrentWaveText.text = "Wave " + currentWave.ToString();
         CurrenHealthText.text = currentHealth.ToString()+"/"+maxHealth.ToString();
         if(currentWave < maxWave && enemiesOnScreen == 0)
         {
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
             maxEnemiesOnScreen++;
             numberEnemy3 = 0;
             numberEnemy2 = 0;
+            totalCurrentEnemies = 0;
             StartCoroutine(Spawn());
         }
         else if(currentWave == maxWave && enemiesOnScreen == 0)
@@ -68,16 +70,17 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if(enemiesPerSpawn > 0 && enemiesOnScreen < totalEnemies)
+        if(enemiesPerSpawn > 0 && totalCurrentEnemies < totalEnemies)
         {
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
-                if(enemiesOnScreen < maxEnemiesOnScreen)
+                if(totalCurrentEnemies < maxEnemiesOnScreen)
                 {
                     
                     GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);
                     newEnemy.transform.position = spawnPoint.transform.position;
                     enemiesOnScreen++;
+                    totalCurrentEnemies++;
                 }
             }
 

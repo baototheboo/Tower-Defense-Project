@@ -81,6 +81,12 @@ public class TowerManager : MonoBehaviour
         TowerList.Clear();
     }
 
+    public void DestroyTower(GameObject tower)
+    {
+        //add tower to list
+        Destroy(tower);
+    }
+
     public void PlaceTower(RaycastHit2D hit)
     {
         if (!EventSystem.current.IsPointerOverGameObject() && towerBtnPressed != null)

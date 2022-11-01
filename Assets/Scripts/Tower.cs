@@ -46,4 +46,6 @@ public class Tower : MonoBehaviour
             nextShotTime = Time.time + (1 / shotPerSeconds);
         }
     }
+
+
 }

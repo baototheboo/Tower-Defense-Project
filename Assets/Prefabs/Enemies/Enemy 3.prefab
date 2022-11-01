@@ -125,7 +125,7 @@ MonoBehaviour:
   currentHealth: 20
   maxHealth: 20
   isDead: 0
-  goldToGive: 0
+  goldToGive: 10
   splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
 --- !u!50 &1337150145817031339
 Rigidbody2D:
@@ -147,7 +147,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3321341080007899075
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12473a52ec8b84e42aab3e24bf97b6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.2
+  speed: 2
   target: 0
   exitPoint: {fileID: 3660485866877879556, guid: 9bcd965735d76ca4f862f53aaa31e006, type: 3}
   wayPoints:

@@ -454,7 +454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 50'
+  m_text: '- 25'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +20
+  m_text: +25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 8479532434161223465}
   - component: {fileID: 1149245376516280935}
   - component: {fileID: 82352617}
+  - component: {fileID: 1941098832293097396}
   m_Layer: 0
   m_Name: Tower3
   m_TagString: Untagged
@@ -1019,11 +1020,31 @@ MonoBehaviour:
   bullet: {fileID: 9209707887708176735, guid: b76446c5b011149449238390cb4a9d8c, type: 3}
   firePoints:
   - {fileID: 1021044542}
-  shotPerSeconds: 2
-  level: 0
+  shotPerSeconds: 1
+  level: 1
   maxLevel: 3
-  upgradeCost: 20
+  upgradeCost: 25
   anim: {fileID: 0}
+--- !u!95 &1941098832293097396
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335421765614218875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9738024cf5193274986e6b70c073f9a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7488158164473703143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1168,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3851637173780569204}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 82352617}
+        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_MethodName: AddLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8812873810101520677
 GameObject:
   m_ObjectHideFlags: 0

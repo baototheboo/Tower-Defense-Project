@@ -401,7 +401,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 50'
+  m_text: '- 20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1156,8 +1156,8 @@ MonoBehaviour:
   bullet: {fileID: 8364047878806945585, guid: fd5d830cdba6e2a46bce292666e3b1d8, type: 3}
   firePoints:
   - {fileID: 41536371}
-  shotPerSeconds: 1
-  level: 0
+  shotPerSeconds: 2
+  level: 1
   maxLevel: 3
   upgradeCost: 20
   anim: {fileID: 0}
