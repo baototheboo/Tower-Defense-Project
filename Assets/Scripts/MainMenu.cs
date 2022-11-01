@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         AudioManager.instance.PlaySFX(3);
+        AudioManager.instance.BossMusic();
         SceneManager.LoadScene(startScene);
     }
 
