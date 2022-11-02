@@ -36,8 +36,10 @@ public class EnemiesHealth : MonoBehaviour
             currentHealth = 0;
             GameManager.instance.AddGold(goldToGive);
             anim.SetBool("isDead", true);
-            Destroy(gameObject, 2f);
-            if( gameObject.layer == 8)
+            //Destroy(gameObject, 2f);
+            gameObject.SetActive(false);
+            GameManager.instance.enemiesOnScreen--;
+            if ( gameObject.layer == 8)
             {
                 AudioManager.instance.PlaySFX(14);
             }
