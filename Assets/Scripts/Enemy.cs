@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public float currentNavTime;
     public Transform enemy;
     private EnemiesHealth enemieHealth;
+    public int healthPusPerWave;
     //public CapsuleCollider2D collider;
 
     // Start is called before the first frame update
@@ -73,7 +74,7 @@ public class Enemy : MonoBehaviour
         enemieHealth.isDead = false;
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
-        enemieHealth.maxHealth += 5; //thay doi mau + them o day
+        enemieHealth.maxHealth += healthPusPerWave; //thay doi mau + them o day
         enemieHealth.currentHealth = enemieHealth.maxHealth;
     }
 
@@ -83,7 +84,7 @@ public class Enemy : MonoBehaviour
         enemieHealth.isDead = false;
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
-        enemieHealth.maxHealth += 5; //thay doi mau + them o day
+        enemieHealth.maxHealth += healthPusPerWave; //thay doi mau + them o day
         enemieHealth.currentHealth = enemieHealth.maxHealth;
     }
 }

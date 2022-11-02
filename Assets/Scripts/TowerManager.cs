@@ -5,11 +5,18 @@ using UnityEngine.EventSystems;
 
 public class TowerManager : MonoBehaviour
 {
+    public static TowerManager instance;
     public TowerButton towerBtnPressed { get; set; }
     private SpriteRenderer spriteRenderer;
     private Collider2D buildTile;
     public List<GameObject> TowerList = new List<GameObject>();
     public List<Collider2D> BuildList = new List<Collider2D>();
+    public static Dictionary<GameObject, Collider2D> map = new Dictionary<GameObject, Collider2D>();
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +41,13 @@ public class TowerManager : MonoBehaviour
                 {
 
                     buildTile = hit.collider;
-                    buildTile.tag = "BuildPlaceFull";
                     RegisterBuildPlace(buildTile);
                     PlaceTower(hit);
                 }
+            }
+            if (spriteRenderer.enabled)
+            {
+                FollowMouse();
             }
         }
     }
@@ -74,12 +84,6 @@ public class TowerManager : MonoBehaviour
         TowerList.Clear();
     }
 
-    public void DestroyTower(GameObject tower)
-    {
-        //add tower to list
-        Destroy(tower);
-    }
-
     public void PlaceTower(RaycastHit2D hit)
     {
         if (!EventSystem.current.IsPointerOverGameObject() && towerBtnPressed != null)
@@ -93,6 +97,8 @@ public class TowerManager : MonoBehaviour
             BuyTower(towerBtnPressed.TowerPrice);
             //disable the sprite of tower
             DisableDragSprite();
+            buildTile.tag = "BuildPlaceFull";
+            map.Add(newTower, hit.collider);
         }
     }
 
@@ -134,5 +140,22 @@ public class TowerManager : MonoBehaviour
         //disable the sprite of tower
         spriteRenderer.enabled = false;
         towerBtnPressed = null;
+    }
+
+    public void ResetTowerTarget(GameObject tower)
+    {
+        print("inside ResetTowerTarget");
+        foreach (Collider2D collider in BuildList)
+        {
+            if (collider == map[tower])
+            {
+                print("ResetTowerTarget success");
+                BuildList.Remove(collider);
+                TowerList.Remove(tower);
+                collider.tag = "BuildPlace";
+                break;
+            }
+        }
+
     }
 }

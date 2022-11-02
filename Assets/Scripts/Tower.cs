@@ -10,8 +10,11 @@ public class Tower : MonoBehaviour
     private float nextShotTime;
 
     public int level;
+    public int atsPerUpgrade;
+    public int dmgPerUpgrade;
     public int maxLevel;
     public int upgradeCost;
+    public int sellCost;
     public Animator anim;
 
     [SerializeField]
@@ -37,7 +40,8 @@ public class Tower : MonoBehaviour
             level++;
             GameManager.instance.ReduceGold(upgradeCost);
             anim.SetTrigger("Upgrade");
-            shotPerSeconds++;
+            shotPerSeconds+=atsPerUpgrade;
+            bullet.damage+= dmgPerUpgrade;
             AudioManager.instance.PlaySFX(11);
         }
     }
@@ -71,6 +75,13 @@ public class Tower : MonoBehaviour
     {
         towerButton.SetActive(true);
         openTowerButton.SetActive(false);
+    }
+
+    public void DestroyTower()
+    {
+        TowerManager.instance.ResetTowerTarget(gameObject);
+        Destroy(gameObject);
+        GameManager.instance.AddGold(sellCost);
     }
 
 }

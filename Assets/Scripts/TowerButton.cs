@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerButton : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class TowerButton : MonoBehaviour
     [SerializeField]
     private int towerPrice;
 
+    public Text goldText;
+
+
+
+    public void Start()
+    {
+        goldText.text = towerPrice.ToString();
+    }
     public int TowerPrice
     {
         get

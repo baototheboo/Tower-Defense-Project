@@ -408,7 +408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 841, y: 344}
+  m_AnchoredPosition: {x: 849, y: 427}
   m_SizeDelta: {x: 130.644, y: 108.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141072105
@@ -1906,7 +1906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2528,8 +2527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000072479, y: -5.0701}
-  m_SizeDelta: {x: 1920, y: 907.7153}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1323281752
 MonoBehaviour:
@@ -3184,7 +3183,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -102.998215}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 532.706, y: 138.978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745119795
@@ -4057,7 +4056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 136}
+  m_AnchoredPosition: {x: 0.000015259, y: -100}
   m_SizeDelta: {x: 532.706, y: 138.978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143871032

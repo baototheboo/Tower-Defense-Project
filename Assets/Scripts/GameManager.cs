@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        goldText.text = currentGold.ToString();
         if (ObjectPool.Instance.poolDictionary["Enemy1"].Count < totalEnemies+1)
         {
             ObjectPool.Instance.AddToPool("Enemy1");
@@ -52,7 +53,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            goldText.text = currentGold.ToString();
             CurrentWaveText.text = "WAVE " + currentWave.ToString();
             CurrenHealthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
             if (currentWave < maxWave && enemiesOnScreen == 0)
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
                 maxEnemiesOnScreen++;
                 numberEnemy3 = 0;
                 numberEnemy2 = 0;
+                totalCurrentEnemies = 0;
                 StartCoroutine(Spawn());
             }
             else if (currentWave == maxWave && enemiesOnScreen == 0)
@@ -85,11 +86,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if(enemiesPerSpawn > 0 && enemiesOnScreen < totalEnemies)
+        if(enemiesPerSpawn > 0 && totalCurrentEnemies < totalEnemies)
         {
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
-                if(totalCurrentEnemies < maxEnemiesOnScreen)
+                if(enemiesOnScreen < maxEnemiesOnScreen)
                 {
 
                     //GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);

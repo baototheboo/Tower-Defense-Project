@@ -73,7 +73,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 6, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &179448547301379966
 GameObject:
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- 25'
+  m_text: '- 50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1018,7 +1018,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 904719474546531150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 82352617}
+        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_MethodName: DestroyTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6335421765614218875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,8 +1137,11 @@ MonoBehaviour:
   - {fileID: 1021044542}
   shotPerSeconds: 1
   level: 1
+  atsPerUpgrade: 0
+  dmgPerUpgrade: 10
   maxLevel: 3
-  upgradeCost: 25
+  upgradeCost: 50
+  sellCost: 25
   anim: {fileID: 0}
   towerButton: {fileID: 179448547301379966}
   openTowerButton: {fileID: 1937941440215703365}

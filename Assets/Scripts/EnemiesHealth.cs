@@ -40,7 +40,6 @@ public class EnemiesHealth : MonoBehaviour
             //Destroy(gameObject, 2f);
             gameObject.SetActive(false);
             GameManager.instance.enemiesOnScreen--;
-            GameManager.instance.totalCurrentEnemies--;
             if ( gameObject.layer == 8)
             {
                 AudioManager.instance.PlaySFX(14);
@@ -52,7 +51,6 @@ public class EnemiesHealth : MonoBehaviour
     {
         Destroy(gameObject);
         GameManager.instance.enemiesOnScreen--;
-        GameManager.instance.totalCurrentEnemies--;
         GameObject obj = Instantiate(splash, transform.position, transform.rotation);
         Destroy(obj, 0.7f);   
     }
