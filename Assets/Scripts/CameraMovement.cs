@@ -8,8 +8,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private Camera cam;
     private Vector3 dragOrigin;
-    
 
+    [SerializeField]
+    private GameObject settingBoard;
+    
     [SerializeField]
     private SpriteRenderer mapRenderer;
     private float mapMinX, mapMinY, mapMaxX, mapMaxY;
@@ -31,19 +33,21 @@ public class CameraMovement : MonoBehaviour
 
     private void PanCamera()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(!settingBoard.activeSelf)
         {
-            dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
+            }
 
-        if (Input.GetMouseButton(0))
-        {
-            Vector3 different = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            print("origin " + dragOrigin + " new position " + cam.ScreenToWorldPoint(Input.mousePosition) + " = different " + different);
-            cam.transform.position = ClampCamera(cam.transform.position + different);
-            //cam.transform.position += different;
-
+            if (Input.GetMouseButton(0))
+            {
+                Vector3 different = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
+                cam.transform.position = ClampCamera(cam.transform.position + different);
+                //cam.transform.position += different;
+            }
         }
+        
     }
 
     private Vector3 ClampCamera(Vector3 targetPosition)

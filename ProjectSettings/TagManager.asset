@@ -9,6 +9,7 @@ TagManager:
   - BuildPlaceFull
   - Enemy
   - Setting
+  - Tower
   layers:
   - Default
   - TransparentFX

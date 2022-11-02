@@ -14,6 +14,13 @@ public class Tower : MonoBehaviour
     public int upgradeCost;
     public Animator anim;
 
+    [SerializeField]
+    private GameObject towerButton;
+
+    [SerializeField]
+    private GameObject openTowerButton;
+
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -47,4 +54,23 @@ public class Tower : MonoBehaviour
             nextShotTime = Time.time + (1 / shotPerSeconds);
         }
     }
+
+    //Destroy tower and retrieve gold
+    //public void Destroy()
+    //{
+        
+    //}
+
+    public void CloseTowerButton()
+    {
+        towerButton.SetActive(false);
+        openTowerButton.SetActive(true);
+    }
+
+    public void OpenTowerButton()
+    {
+        towerButton.SetActive(true);
+        openTowerButton.SetActive(false);
+    }
+
 }
