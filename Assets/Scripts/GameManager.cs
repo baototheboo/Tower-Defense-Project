@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Assets.Scripts;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,27 +34,41 @@ public class GameManager : MonoBehaviour
         instance = this;
         currentHealth = maxHealth;
     }
-    
+    public string[] listTagEnemy = { "Enemy1", "Enemy2", "Enemy3" };
     // Update is called once per frame
     void Update()
     {
-        goldText.text = currentGold.ToString();
-        CurrentWaveText.text = "Wave " + currentWave.ToString();
-        CurrenHealthText.text = currentHealth.ToString()+"/"+maxHealth.ToString();
-        if(currentWave < maxWave && enemiesOnScreen == 0)
+        if (ObjectPool.Instance.poolDictionary["Enemy1"].Count < totalEnemies+1)
         {
-            currentWave++;
-            totalEnemies++;
-            maxEnemiesOnScreen++;
-            numberEnemy3 = 0;
-            numberEnemy2 = 0;
-            totalCurrentEnemies = 0;
-            StartCoroutine(Spawn());
+            ObjectPool.Instance.AddToPool("Enemy1");
+        } 
+        else if(ObjectPool.Instance.poolDictionary["Enemy2"].Count < currentWave/10+1)
+        {
+            ObjectPool.Instance.AddToPool("Enemy2");
         }
-        else if(currentWave == maxWave && enemiesOnScreen == 0)
+        else if (ObjectPool.Instance.poolDictionary["Enemy3"].Count < currentWave / 3+1)
         {
-            winWindow.SetActive(true);
-            StopAllCoroutines();
+            ObjectPool.Instance.AddToPool("Enemy3");
+        }
+        else
+        {
+            goldText.text = currentGold.ToString();
+            CurrentWaveText.text = "WAVE " + currentWave.ToString();
+            CurrenHealthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
+            if (currentWave < maxWave && enemiesOnScreen == 0)
+            {
+                currentWave++;
+                totalEnemies++;
+                maxEnemiesOnScreen++;
+                numberEnemy3 = 0;
+                numberEnemy2 = 0;
+                StartCoroutine(Spawn());
+            }
+            else if (currentWave == maxWave && enemiesOnScreen == 0)
+            {
+                winWindow.SetActive(true);
+                StopAllCoroutines();
+            }
         }
     }
 
@@ -70,15 +85,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if(enemiesPerSpawn > 0 && totalCurrentEnemies < totalEnemies)
+        if(enemiesPerSpawn > 0 && enemiesOnScreen < totalEnemies)
         {
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
                 if(totalCurrentEnemies < maxEnemiesOnScreen)
                 {
-                    
-                    GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);
-                    newEnemy.transform.position = spawnPoint.transform.position;
+
+                    //GameObject newEnemy = Instantiate(enemies[whichEnemy()] as GameObject);
+                    //newEnemy.transform.position = spawnPoint.transform.position;
+                    ObjectPool.Instance.SpawnFromPool(listTagEnemy[whichEnemy()], spawnPoint.transform.position, Quaternion.identity);
                     enemiesOnScreen++;
                     totalCurrentEnemies++;
                 }
@@ -115,6 +131,11 @@ public class GameManager : MonoBehaviour
             {
                 numberEnemy2++;
                 return 1;
+            }
+            if (numberEnemy3 < currentWave / 3)
+            {
+                numberEnemy3++;
+                return 2;
             }
             return 0;
         }
