@@ -39,13 +39,6 @@ public class TowerManager : MonoBehaviour
                     PlaceTower(hit);
                 }
             }
-
-        }
-
-        // when sprite is enabled move the sprite where our mouse position is
-        if (spriteRenderer.enabled)
-        {
-            FollowMouse();
         }
     }
 
