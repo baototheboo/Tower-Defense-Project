@@ -10,6 +10,7 @@ public class EnemiesHealth : MonoBehaviour
     public bool isDead;
     public int goldToGive;
     public GameObject splash;
+    public GameObject hitEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,11 @@ public class EnemiesHealth : MonoBehaviour
     {
         currentHealth -= damage;
         anim.SetTrigger("Hurt");
+        GameObject obj = Instantiate(hitEffect, transform.position, transform.rotation);
+        Destroy(obj, .5f);
 
-        if(currentHealth <= 0)
+
+        if (currentHealth <= 0)
         {
             GetComponent<Collider2D>().enabled = false;
             isDead = true;
