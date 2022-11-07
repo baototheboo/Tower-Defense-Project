@@ -2654,7 +2654,7 @@ MonoBehaviour:
   totalCurrentEnemies: 0
   enemiesPerSpawn: 1
   maxWave: 1000
-  maxHealth: 1
+  maxHealth: 5
   CurrentWaveText: {fileID: 2130172749}
   LoseAtWave: {fileID: 575404669}
   CurrenHealthText: {fileID: 794072514}
