@@ -161,8 +161,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6031944, y: -0.47470513}
-  m_Size: {x: 1.1729627, y: 1.2292049}
+  m_Offset: {x: 0, y: -0.07337193}
+  m_Size: {x: 1.1729627, y: 1.2781216}
   m_Direction: 0
 --- !u!114 &-4261519675964219669
 MonoBehaviour:
@@ -180,6 +180,7 @@ MonoBehaviour:
   target: 0
   exitPoint: {fileID: 3660485866877879556, guid: 9bcd965735d76ca4f862f53aaa31e006, type: 3}
   wayPoints:
+  - {fileID: 1628406820894897938, guid: e70a8afb7ca488a4aaf9d19a66622f64, type: 3}
   - {fileID: 6267682370651051263, guid: fd0067fb08ad5aa428180a55d1c9c02d, type: 3}
   - {fileID: 4821408267656416082, guid: 47ffa439c091ce246825886b95d2648d, type: 3}
   - {fileID: 6733298736947900881, guid: d606e69a3fa84904c9d9af1126314c47, type: 3}
@@ -211,7 +212,7 @@ MonoBehaviour:
   - {fileID: 8967032327679195944, guid: d70f1665c7bc0d845b9bb3614e2915e1, type: 3}
   - {fileID: 1929309966463411181, guid: c175b988243cb5345aeadbdeb3178697, type: 3}
   - {fileID: 903771562014259043, guid: 51ef3dc48d8208044abcd0d9d24c28cf, type: 3}
-  - {fileID: 1628406820894897938, guid: e70a8afb7ca488a4aaf9d19a66622f64, type: 3}
+  - {fileID: 4871687710282574464, guid: 6c6594b0776120140907d1fc6d3e7be9, type: 3}
   navTimeUpdate: 0
   currentNavTime: 0
   enemy: {fileID: 0}
