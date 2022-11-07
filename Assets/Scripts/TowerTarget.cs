@@ -27,7 +27,10 @@ public class TowerTarget : MonoBehaviour
             }
 
         }
-
+        else
+        {
+            shouldShoot = false;
+        }
         //closestEnemy = GetClosestEnemy();
     }
 
@@ -79,6 +82,10 @@ public class TowerTarget : MonoBehaviour
         {
 
             shouldShoot = false;
+        }
+        if (other.CompareTag("Projectile"))
+        {
+            Destroy(other.gameObject);
         }
     }
 }
