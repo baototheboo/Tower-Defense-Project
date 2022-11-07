@@ -121,12 +121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ffb4f75d88f1f448bfdd4d40db14d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 6759754228856327123}
   currentHealth: 500
   maxHealth: 500
   isDead: 0
   goldToGive: 100
   splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
+  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
 --- !u!50 &6352969732867159507
 Rigidbody2D:
   serializedVersion: 4

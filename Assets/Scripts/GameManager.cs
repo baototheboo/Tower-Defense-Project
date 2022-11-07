@@ -115,15 +115,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Replay()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
+    
     int whichEnemy()
     {
         if (currentWave > 10)
