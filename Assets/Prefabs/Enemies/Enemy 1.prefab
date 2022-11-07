@@ -127,6 +127,7 @@ MonoBehaviour:
   isDead: 0
   goldToGive: 10
   splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
+  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
 --- !u!50 &1253058597342215209
 Rigidbody2D:
   serializedVersion: 4
