@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1993185425221945237}
   m_Layer: 0
   m_Name: shine1
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08220fa393de9a74eb86246980c64ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  speed: 2
+  damage: 25
+  speed: 1.5
 --- !u!50 &1993185425221945237
 Rigidbody2D:
   serializedVersion: 4

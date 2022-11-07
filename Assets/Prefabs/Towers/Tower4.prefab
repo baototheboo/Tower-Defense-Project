@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462905257}
   - component: {fileID: 462905258}
-  - component: {fileID: 3956611883397175298}
+  - component: {fileID: 1665762009534729939}
   m_Layer: 0
   m_Name: firePoint
   m_TagString: Untagged
@@ -49,8 +49,9 @@ MonoBehaviour:
   multipleEnemies: []
   tower: {fileID: 7520992187677859086}
   shouldShoot: 0
---- !u!61 &3956611883397175298
-BoxCollider2D:
+  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
+--- !u!58 &1665762009534729939
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -59,22 +60,12 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 4}
-  m_EdgeRadius: 0
+  m_Radius: 2
 --- !u!1 &439942305651409981
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,8 +172,8 @@ MonoBehaviour:
   - {fileID: 462905257}
   shotPerSeconds: 1
   level: 1
-  atsPerUpgrade: 1
-  dmgPerUpgrade: 50
+  atsPerUpgrade: 0.2
+  dmgPerUpgrade: 10
   maxLevel: 3
   upgradeCost: 200
   sellCost: 100

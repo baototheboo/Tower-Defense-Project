@@ -38,12 +38,10 @@ public class EnemiesHealth : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             isDead = true;
             currentHealth = 0;
-            //GameManager.instance.enemiesOnScreen -= 1;
             GameManager.instance.AddGold(goldToGive);
             anim.SetBool("isDead", true);
             //Destroy(gameObject, 2f);
-            gameObject.SetActive(false);
-            GameManager.instance.enemiesOnScreen--;
+            StartCoroutine(Wait(1.0f));
             if ( gameObject.layer == 8)
             {
                 AudioManager.instance.PlaySFX(14);
@@ -57,5 +55,12 @@ public class EnemiesHealth : MonoBehaviour
         GameManager.instance.enemiesOnScreen--;
         GameObject obj = Instantiate(splash, transform.position, transform.rotation);
         Destroy(obj, 0.7f);   
+    }
+
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
+        GameManager.instance.enemiesOnScreen--;
     }
 }

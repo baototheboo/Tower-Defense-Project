@@ -71,7 +71,10 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         target = 0;
-        enemieHealth.isDead = false;
+        if (enemieHealth.isDead == true)
+        {
+            enemieHealth.isDead = false;
+        }
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
         enemieHealth.maxHealth += healthPusPerWave; //thay doi mau + them o day
@@ -81,7 +84,10 @@ public class Enemy : MonoBehaviour
     private void OnDisable()
     {
         target = 0;
-        enemieHealth.isDead = false;
+        if(enemieHealth.isDead == true)
+        {
+            enemieHealth.isDead = false;
+        }
         GetComponent<CapsuleCollider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = Color.white;
         enemieHealth.maxHealth += healthPusPerWave; //thay doi mau + them o day

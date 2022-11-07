@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 29c806a2eee6df14abd68e505569353e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 7610613629425906400}
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 15
+  maxHealth: 15
   isDead: 0
-  goldToGive: 10
+  goldToGive: 5
   splash: {fileID: 1523492050140616530, guid: 0119404d0e29266448935071c553f6ab, type: 3}
   hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
 --- !u!50 &1337150145817031339
@@ -217,4 +217,4 @@ MonoBehaviour:
   navTimeUpdate: 0
   currentNavTime: 0
   enemy: {fileID: 0}
-  healthPusPerWave: 1
+  healthPusPerWave: 2

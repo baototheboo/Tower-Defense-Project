@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int maxWave;
     public int maxHealth = 4;
     public Text CurrentWaveText;
+    public Text LoseAtWave;
     public Text CurrenHealthText;
     public int currentWave = 0;
     int numberEnemy3 = 0;
@@ -26,7 +27,9 @@ public class GameManager : MonoBehaviour
     public int currentHealth;
     public GameObject winWindow;
     public GameObject loseWindow;
-    
+
+    public GameObject[] screenObjects;
+
     public int currentGold;
     public Text goldText;
     private void Awake()
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
         else
         {
             CurrentWaveText.text = "WAVE " + currentWave.ToString();
+            LoseAtWave.text = "You survived for " + currentWave.ToString() + " wave(s)!";
             CurrenHealthText.text = currentHealth.ToString() + "/" + maxHealth.ToString();
             if (currentWave < maxWave && enemiesOnScreen == 0)
             {
@@ -84,6 +88,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Time.timeScale == 0f)
+            Time.timeScale = 1f;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+        if (Time.timeScale == 0f)
+            Time.timeScale = 1f;
+    }
+
     IEnumerator Spawn()
     {
         if(enemiesPerSpawn > 0 && totalCurrentEnemies < totalEnemies)
@@ -111,7 +129,12 @@ public class GameManager : MonoBehaviour
         if(currentHealth <= 0)
         {
             loseWindow.SetActive(true);
+            Time.timeScale = 0f;
             currentHealth = 0;
+            foreach (GameObject obj in screenObjects)
+            {
+                obj.SetActive(false);
+            }
         }
     }
 

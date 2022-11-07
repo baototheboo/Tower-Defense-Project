@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41536371}
   - component: {fileID: 41536372}
-  - component: {fileID: 4331914250451709935}
+  - component: {fileID: 720275906}
   m_Layer: 0
   m_Name: firePoint
   m_TagString: Untagged
@@ -47,11 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closestEnemy: {fileID: 4372787007851819946, guid: 767e7789aa13bfa4a87dd811505868f5, type: 3}
   multipleEnemies: []
-  tower: {fileID: 1881310212}
+  tower: {fileID: 0}
   shouldShoot: 0
-  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
---- !u!58 &4331914250451709935
-CircleCollider2D:
+--- !u!61 &720275906
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -60,12 +59,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 3
+  m_Size: {x: 4, y: 3}
+  m_EdgeRadius: 0
 --- !u!1 &162070664541364054
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +199,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881310212}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: AddLevel
         m_Mode: 1
@@ -326,7 +335,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881310212}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: DestroyTower
         m_Mode: 1
@@ -1043,7 +1052,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881310212}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: CloseTowerButton
         m_Mode: 1
@@ -1176,7 +1185,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881310212}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: OpenTowerButton
         m_Mode: 1
@@ -1434,11 +1443,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2764379169894567204}
   - component: {fileID: 5538621297635611105}
-  - component: {fileID: 1881310212}
   - component: {fileID: 3842511838614578433}
   - component: {fileID: 2729964188853221118}
   m_Layer: 0
-  m_Name: Tower2
+  m_Name: TeslaTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1514,31 +1522,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1881310212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7721750383226766957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3e45f6982dfd245931c6c142374061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 8364047878806945585, guid: fd5d830cdba6e2a46bce292666e3b1d8, type: 3}
-  firePoints:
-  - {fileID: 41536371}
-  shotPerSeconds: 1
-  level: 1
-  atsPerUpgrade: 0.7
-  dmgPerUpgrade: 2
-  maxLevel: 3
-  upgradeCost: 40
-  sellCost: 20
-  anim: {fileID: 0}
-  towerButton: {fileID: 2961308572397655170}
-  openTowerButton: {fileID: 7137224948163162645}
 --- !u!95 &3842511838614578433
 Animator:
   serializedVersion: 4
