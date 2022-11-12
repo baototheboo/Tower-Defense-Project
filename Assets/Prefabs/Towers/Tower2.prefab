@@ -49,7 +49,6 @@ MonoBehaviour:
   multipleEnemies: []
   tower: {fileID: 1881310212}
   shouldShoot: 0
-  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
 --- !u!58 &4331914250451709935
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -65,7 +64,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 3.5
 --- !u!1 &162070664541364054
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +667,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0
@@ -1381,6 +1381,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 6
   m_TargetDisplay: 0
@@ -1529,10 +1530,10 @@ MonoBehaviour:
   bullet: {fileID: 8364047878806945585, guid: fd5d830cdba6e2a46bce292666e3b1d8, type: 3}
   firePoints:
   - {fileID: 41536371}
-  shotPerSeconds: 1
+  shotPerSeconds: 1.2
   level: 1
-  atsPerUpgrade: 0.7
-  dmgPerUpgrade: 2
+  atsPerUpgrade: 0.9
+  dmgPerUpgrade: 5
   maxLevel: 3
   upgradeCost: 40
   sellCost: 20

@@ -49,7 +49,6 @@ MonoBehaviour:
   multipleEnemies: []
   tower: {fileID: 7520992187677859086}
   shouldShoot: 0
-  hitEffect: {fileID: 3398944326191714714, guid: 93aee0ffdbdf0724fbf3980b4ea1f5b3, type: 3}
 --- !u!58 &1665762009534729939
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -65,7 +64,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 2.5
 --- !u!1 &439942305651409981
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,10 +169,10 @@ MonoBehaviour:
   bullet: {fileID: 3151614853492071050, guid: 17e7d7e163bd2004383e51b567aacdf2, type: 3}
   firePoints:
   - {fileID: 462905257}
-  shotPerSeconds: 1
+  shotPerSeconds: 0.9
   level: 1
-  atsPerUpgrade: 0.2
-  dmgPerUpgrade: 10
+  atsPerUpgrade: 0.25
+  dmgPerUpgrade: 15
   maxLevel: 3
   upgradeCost: 200
   sellCost: 100
@@ -527,6 +526,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 6
   m_TargetDisplay: 0
@@ -1109,6 +1109,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0

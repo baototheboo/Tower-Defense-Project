@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     private float nextShotTime;
 
     public int level;
-    public int atsPerUpgrade;
+    public float atsPerUpgrade;
     public int dmgPerUpgrade;
     public int maxLevel;
     public int upgradeCost;
